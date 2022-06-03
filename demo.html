@@ -1,32 +1,27 @@
-<!DOCTYPE html>
 <html>
-<head>
-  <link href="https://vjs.zencdn.net/7.19.2/video-js.css" rel="stylesheet" />
-
-  <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
-  <!-- <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script> -->
-</head>
-
-<body>
-  <video
-    id="my-video"
-    class="video-js"
-    controls
-    preload="auto"
-    width="640"
-    height="264"
-    data-setup="{}"
-  >
-	<source src="https://stream.unica.vn/unica/_definst_/unica/214/21336/720.mp4/playlist.m3u8?wowzatokenendTime=1654253899&wowzatokenstartTime=1654246699&wowzatokenhash=QFPeCNwzz8nlv4xeSWUgIivXPfYox1FvdBCJ0Iy-z_c=&uid=546742&expired=1654248261&token=a17c93e987a0ad8401971b5ca1895324d6a4c84a" type="application/x-mpegurl" />
-    <p class="vjs-no-js">
-      To view this video please enable JavaScript, and consider upgrading to a
-      web browser that
-      <a href="https://videojs.com/html5-video-support/" target="_blank"
-        >supports HTML5 video</a
-      >
-    </p>
-  </video>
-
-  <script src="https://vjs.zencdn.net/7.19.2/video.min.js"></script>
-</body>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <video id="video" style="position:fixed; top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;" controls></video>
+    <script>
+    if(Hls.isSupported())
+    {
+        var video = document.getElementById('video');
+        var hls = new Hls();
+        hls.loadSource('https://stream.unica.vn/unica/_definst_/unica/214/21336/720.mp4/playlist.m3u8?wowzatokenendTime=1654253899&wowzatokenstartTime=1654246699&wowzatokenhash=QFPeCNwzz8nlv4xeSWUgIivXPfYox1FvdBCJ0Iy-z_c=&uid=546742&expired=1654248261&token=a17c93e987a0ad8401971b5ca1895324d6a4c84a');
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED,function()
+        {
+            video.play();
+        });
+    }
+    else if (video.canPlayType('application/vnd.apple.mpegurl'))
+    {
+        video.src = 'https://stream.unica.vn/unica/_definst_/unica/214/21336/720.mp4/playlist.m3u8?wowzatokenendTime=1654253899&wowzatokenstartTime=1654246699&wowzatokenhash=QFPeCNwzz8nlv4xeSWUgIivXPfYox1FvdBCJ0Iy-z_c=&uid=546742&expired=1654248261&token=a17c93e987a0ad8401971b5ca1895324d6a4c84a';
+        video.addEventListener('canplay',function()
+        {
+            video.play();
+        });
+    }
+    </script>
+  </body>
 </html>
