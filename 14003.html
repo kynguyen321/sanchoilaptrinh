@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link
+  href="https://unpkg.com/video.js@7/dist/video-js.min.css"
+  rel="stylesheet"
+/>
+
+<!-- City -->
+<link
+  href="https://unpkg.com/@videojs/themes@1/dist/sea/index.css"
+  rel="stylesheet"
+/>
+
+
+  <!-- If you'd like to support IE8 (for Video.js versions prior to v7) -->
+  <!-- <script src="https://vjs.zencdn.net/ie8/1.1.2/videojs-ie8.min.js"></script> -->
+</head>
+
+<body>
+  <video
+	
+	class="video-js vjs-theme-sea" 
+    id="my-video"
+    class="video-js"
+    controls
+    preload="auto"
+    width="640"
+    height="264"
+    data-setup="{}"
+	style="position:fixed; top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden;"
+  >
+    <source src="https://stream.unica.vn/unica/_definst_/unica/220/21932/720.mp4/playlist.m3u8?wowzatokenendTime=1654961338&wowzatokenstartTime=1654954138&wowzatokenhash=APdwR1C_pguKNsIc1VbN4HME1gf2HGJ9-TpLGlkRugA=&uid=546742&expired=1654955838&token=3a9ba4073cdbb3be0e4eb5e1964a4bcd98178771" type="application/x-mpegurl" />
+    <p class="vjs-no-js">
+      To view this video please enable JavaScript, and consider upgrading to a
+      web browser that
+      <a href="https://videojs.com/html5-video-support/" target="_blank"
+        >supports HTML5 video</a
+      >
+    </p>
+  </video>
+
+  <script src="https://vjs.zencdn.net/7.19.2/video.min.js"></script>
+</body>
+</html>
