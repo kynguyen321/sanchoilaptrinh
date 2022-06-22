@@ -1,0 +1,214 @@
+(function() {
+    const baseUrl = 'https://webpush.vn';
+    const linkScript = document.getElementById("WebPush_ID");
+    const url = new URL(linkScript.src);
+    const websiteID = url.searchParams.get("id");
+    const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
+    const registrationId = localStorage.getItem('registrationId');
+    const is_cloud = false;
+    if (isSafari) {
+        console.log('Safari ignored');
+        return;
+    }
+
+    function webPushIncludeJs(file) {
+        for(let i in file){
+            let script  = document.createElement('script');
+            script.type = 'text/javascript';
+            script.src  = file[i];
+            document.getElementsByTagName('head').item(0).appendChild(script);
+        }
+    }
+    function onJqueryReady(callback, interval) {
+        interval = interval || 500;
+        let handler = function() {
+            try {
+                if (window.jQuery) {
+                    callback();
+                } else {
+                    setTimeout(handler, interval)
+                }
+            } catch {
+                setTimeout(handler, interval);
+            }
+        };
+        setTimeout(handler, interval)
+    }
+    function loadCssFile(cssFilesArr){
+        for(let x = 0; x < cssFilesArr.length; x++) {
+            const fileRef = document.createElement("link");
+            fileRef.setAttribute("rel", "stylesheet");
+            fileRef.setAttribute("type", "text/css");
+            fileRef.setAttribute("href", cssFilesArr[x]);
+            document.getElementsByTagName("head")[0].appendChild(fileRef);
+        }
+    }
+    if (!window.jQuery) {
+        webPushIncludeJs([`https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js`]);
+    }
+
+    webPushIncludeJs([
+        'https://cdnjs.cloudflare.com/ajax/libs/ClientJS/0.1.11/client.min.js',
+        'https://www.gstatic.com/firebasejs/8.0.1/firebase-app.js',
+        'https://www.gstatic.com/firebasejs/8.0.1/firebase-messaging.js',
+        baseUrl + '/js/website-embeds/functions.js'
+    ]);
+    loadCssFile([`${baseUrl}/css/style-notification.css`]);
+
+    setTimeout(function () {
+        onJqueryReady(function () {
+            if (location.protocol === 'https:') {
+                jQuery(function ($) {
+                    function saveCookie(cookie_data) {
+                        let registrationId = localStorage.getItem('registrationId');
+                        if (cookie_data && registrationId) {
+                            localStorage.setItem('save_cookie_wp', true);
+                            localStorage.setItem('save_cookie_wp_date', new Date());
+                            jQuery.ajax({
+                                url: baseUrl + "/api/cookie/" + registrationId,
+                                type: "POST",
+                                data: cookie_data,
+                                dateType: "text",
+                                success: function (response) {
+                                }
+                            })
+                        }
+                    }
+
+                    jQuery.ajax({
+                        url: baseUrl + '/api/websites/' + websiteID,
+                        type: "GET",
+                        crossDomain: true,
+                        dataType: 'json',
+                        contentType: false,
+                        processData: false
+                    })
+                    .done(function (res) {
+                        const data = res.website;
+                        let cookie_data = getCookieList();
+                        let cookie_valid = [data.cookie_user_id, data.cookie_name, data.cookie_email, data.cookie_phone];
+                        let data_save = {};
+                        for (let i in cookie_data) {
+                            let variable = cookie_data[i];
+                            try {
+                                variable.trim();
+                                let variable_data = variable.split('=');
+                                let variable_key = variable_data[0].trim();
+                                let variable_value = variable_data[1];
+                                if (cookie_valid.includes(variable_key)) {
+                                    if (variable_key == cookie_valid[0]) {
+                                        data_save.cookie_user_id = variable_value;
+                                    }
+                                    if (variable_key == cookie_valid[1]) {
+                                        data_save.cookie_name = variable_value;
+                                    }
+                                    if (variable_key == cookie_valid[2] && checkEmail(variable_value)) {
+                                        data_save.cookie_email = variable_value;
+                                    }
+                                    if (variable_key == cookie_valid[3] && checkPhone(variable_value)) {
+                                        data_save.cookie_phone = variable_value;
+                                    }
+                                }
+                            }
+                            catch {
+
+                            }
+                        }
+
+                        saveCookie(data_save);
+
+                        let html = genWebsiteInfo(res);
+                        $('body').append(html);
+
+                        setLocalUrl();
+                        setMyToken(data._id);
+
+                        // Show Bell
+                        webPushIncludeJs([`${baseUrl}/js/website-embeds/notification-subscribe.js`]);
+
+                        onFirebaseReady(function () {
+                            webPushIncludeJs([`${baseUrl}/js/website-embeds/config-firebase.js`]);
+                        });
+                        if (res.trigger && res.trigger.length > 0) {
+                            let addTag = [];
+                            let removeTag = [];
+                            let trigger_data_wp = JSON.stringify(res.trigger);
+                            localStorage.setItem('trigger_data_wp', trigger_data_wp);
+                            res.trigger.map((item) => {
+                                let title = document.querySelector('title') ? document.querySelector('title').textContent : '';
+                                title = title.toLowerCase();
+                                title = convertAlias(title);
+                                let patthname = window.location.pathname;
+                                let url_segment = patthname.slice(1);
+                                let check_title = item.key_title.find(i => title.indexOf(convertTitle(i)) > -1);
+                                let check_url = (item.key_title) ? item.key_title.find(i => url_segment.indexOf(i) > -1) : '';
+                                if (check_title || check_url) {
+                                    addTag = addTag.concat(item.add_tag);
+                                    removeTag = removeTag.concat(item.remove_tag);
+                                }
+                                let registrationId = localStorage.getItem('registrationId');
+                                let isPushNotificationsEnabled = checkNull(localStorage.getItem('isPushNotificationsEnabled'));
+
+                                if(registrationId != '' && !isPushNotificationsEnabled && (addTag.length > 0 || removeTag.length > 0)){
+                                    $.ajax({
+                                        url: baseUrl + '/api/tags/'+registrationId+'?add=' + addTag.join(',') + '&remove=' + removeTag.join(','),
+                                        type: "GET",
+                                        crossDomain: true,
+                                        dataType: 'json',
+                                        contentType: false,
+                                        processData: false
+                                    }).done(function (res) {
+
+                                    });
+                                }
+                            })
+                        }
+                    });
+                });
+
+                let trigger_data = JSON.parse(localStorage.getItem('trigger_data_wp'));
+                if (registrationId && trigger_data) {
+                    var open = window.XMLHttpRequest.prototype.open;
+                    function openReplacement(method, url, async, user, password) {
+                        let first_key = url.slice(0,1);
+                        let url_convert = url;
+                        if(first_key == '/'){
+                            url_convert = url_convert.slice(1);
+                        }
+                        let url_split = url_convert.split('?');
+                        url_convert = url_split[0];
+                        // Nếu là Wordpress có dấu ? đầu tiên
+                        if(!url_convert){
+                            url_convert = url_split[1];
+                        }
+
+                        let addTagRequest = [];
+                        let removeTagRequest = [];
+                        trigger_data.map((item) => {
+                            let check_request_url = (item.key_title) ? item.key_title.find(i => url_convert.indexOf(i) > -1) : '';
+                            if (check_request_url) {
+                                addTagRequest = addTagRequest.concat(item.add_tag);
+                                removeTagRequest = removeTagRequest.concat(item.remove_tag);
+                            }
+                        })
+
+                        // console.log("= CHECK BUG");
+                        // console.log(url_convert);
+                        // console.log(registrationId);
+                        // console.log(addTagRequest);
+                        if (registrationId && (addTagRequest.length > 0 || removeTagRequest.length > 0)) {
+                            var xhttp = new XMLHttpRequest();
+                            xhttp.onreadystatechange = function () {
+                            };
+                            xhttp.open("GET", baseUrl + '/api/tags/' + registrationId + '?add=' + addTagRequest.join(',') + '&remove=' + removeTagRequest.join(','), true);
+                            xhttp.send();
+                        }
+                        return open.apply(this, arguments);
+                    }
+
+                    window.XMLHttpRequest.prototype.open = openReplacement;
+                }
+            }
+        })
+    }, 500);
+})();

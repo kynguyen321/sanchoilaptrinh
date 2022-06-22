@@ -59,12 +59,12 @@
 <link href="/media/styles_v2018/library/bootstrap-select.min.css" rel="stylesheet">
 <link href="/media/styles_v2018/owl.carousel.css" rel="stylesheet">
 <link href="/media/styles_v2018/owl.theme.default.min.css" rel="stylesheet">
-<link href="/css/update-frontend.css?v=0.3" rel="stylesheet">
-<link href="/media/styles_v2021/jwplayer.css?v=1.1" rel="stylesheet">        <!--<script id="ultra_embed" type="text/javascript" src="https://ultramailer.vn/embed/goal?id=3295c76acbf4caaed33c36b1b5fc2cb1" async="async"></script>-->
+<link href="/css/update-frontend.css?v=0.4" rel="stylesheet">
+<link href="/media/styles_v2021/jwplayer.css?v=1.2" rel="stylesheet">        <!--<script id="ultra_embed" type="text/javascript" src="https://ultramailer.vn/embed/goal?id=3295c76acbf4caaed33c36b1b5fc2cb1" async="async"></script>-->
         <script type="text/javascript" src="/media/js_v2018/libs/lazyload/jquery.lazy.min.js" async></script>
         <script type="text/javascript" src="/media/js_v2018/libs/lazyload/jquery.lazy.plugins.min.js" async></script>
 
-        <link rel="stylesheet" href="/media/styles_v2018/main.css?v=1654246509">
+        <link rel="stylesheet" href="/media/styles_v2018/main.css?v=1655804725">
     </head>
         <body>
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MPPKBFG" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -74,131 +74,7 @@
     /*main  { margin-top: 100px; }*/
 </style>
 <header>
-    <style>
-.unica-home-menutop{
-    margin-top: 38px!important;
-}
-main{
-    margin-top: 95px!important;
-}
-@media(max-width:783px) {
-    .unica-home-menutop{
-        margin-top: 57px!important;
-    }
-    .sm-mobile-menu{
-        margin-top: 58px!important;
-    }
-    main{
-        margin-top: 170px!important;
-    }
-}
-@media(max-width:990px) {
-    .u-teacher-top{
-        top: 75px;
-    }
-}
-@media(max-width:776px) {
-    .u-teacher-top{
-        top: 110px!important;
-    }
-}
-@media(max-width:426px) {
-    .sm-mobile-menu{
-        margin-top: 75px!important;
-    }
-    main{
-        margin-top: 165px!important;
-    }
-}
-</style> 
-<script src="/media/js/jquery.countdown.min.js"></script>
-<style>
-    .countdown{position: fixed !important;top:0px;z-index: 2000;width: 100%;  background: rgb(253,29,29);  	background: linear-gradient(156deg, rgb(172, 17, 17) 32%, rgba(136,10,10,1) 100%); padding: 10px 15px ;color: #fff;font-size: 16px;  }
-    .countdown-txt { font-size: 16px; }
-</style>
-<div class="countdown text-center">
-    <!--<a target="_blank" href="https://www.facebook.com/unica.vn/posts/2755919831388338" style="color: white;">LIVESTREAM QUAY SỐ TRÚNG THƯỞNG
-        <span class="col-xs">IPHONE 12, 11h ngày 1/12/2020</span>
-    </a>-->
-    <div class="countdown-txt">
-        <div class="col-xs" style=" font-weight: bold; text-transform: uppercase;">
-             <span style="color: #FCD904;" class="col" id="count-down">
-                [CHỈ CÒN
-                <span class="col"><b class="day_flash"></b> ngày</span>
-                <b class="hour_flash"></b> giờ <b class="minutes_flash"></b> phút <b class="seconds_flash"></b> giây]
-            </span>
-            <span style="color:#45fb87">unica 6 tuổi</span> - CHỈ 199k/KHÓA, MUA 2 TẶNG 1 VÀ HÀNG NGÀN GIẢI THƯỞNG HẤP DẪN. <a id="link-donggia" style="color: white; text-decoration: underline;" href="/donggia">XEM NGAY!</a>
-        </div>
-    </div>
-</div>
- <script type="text/javascript" async>
-     console.log('debug time now')
-     console.log('time: 2022-06-03 15:09:55')
-     function countdownv2() {
-         var countDownDate = new Date("2021-11-27 23:59:59").getTime();
-
-        // Update the count down every 1 second
-         var x = setInterval(function() {
-
-             // Get today's date and time
-             var now = new Date().getTime();
-
-             // Find the distance between now and the count down date
-             var distance = countDownDate - now;
-
-             // Time calculations for days, hours, minutes and seconds
-             var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-             var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-             var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-             // Output the result in an element with id="demo"
-             // document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-             //     + minutes + "m " + seconds + "s ";
-             $(".day_flash").text(days)
-             $(".hour_flash").text(hours)
-             $(".minutes_flash").text(minutes)
-             $(".seconds_flash").text(seconds)
-             // If the count down is over, write some text
-             if (distance < 0) {
-                 clearInterval(x);
-                 document.getElementById("demo").innerHTML = "EXPIRED";
-             }
-         }, 1000);
-     }
-
-    $(document).ready(function () {
-        countdownv2();
-        $(".day_flash").countdown('2022-06-06 23:59:59')
-            .on('update.countdown', function (event) {
-                var format = '%d';
-                $(this).html(event.strftime(format));
-            });
-        $(".hour_flash").countdown('2022-06-06 23:59:59')
-            .on('update.countdown', function (event) {
-                var format = '%H';
-                $(this).html(event.strftime(format));
-            });
-
-        $(".minutes_flash").countdown('2022-06-06 23:59:59')
-            .on('update.countdown', function (event) {
-                var format = '%M';
-                $(this).html(event.strftime(format));
-            });
-
-        $(".seconds_flash").countdown('2022-06-06 23:59:59')
-            .on('update.countdown', function (event) {
-                var format = '%S';
-                $(this).html(event.strftime(format));
-            });
-
-        if (screen.width <= 425) {
-            $('#count-down').hide();
-            $('#link-donggia').html('xem ngay')
-        }
-    });
-</script>
-    <?//php include_once("_ads_app.php"); ?>
+        <?//php include_once("_ads_app.php"); ?>
     <div class="clearfix" style="position: relative;">
         <!--Menu PC-->
         <div class="unica-home-menutop hidden-xs" style="position: absolute;">
@@ -368,13 +244,6 @@ main{
                             <input autocomplete="off" name="key" id="text_search" value="" type="text" class="form-control unica-form" placeholder="Tìm khóa học, giảng viên" required>
                             <button type="submit" class="btn unica-btn-search"><i class="fa fa-search" aria-hidden="true"></i></button>
                             <div class="autocomplete-search" style="display: none">
-                                                                <ul>
-                                                                            <li><a href="/search?key=hành chính nhân sự">hành chính nhân sự</a></li>
-                                                                            <li><a href="/search?key=forex">forex</a></li>
-                                                                            <li><a href="/search?key=quản lý">quản lý</a></li>
-                                                                            <li><a href="/search?key=makeup">makeup</a></li>
-                                                                            <li><a href="/search?key=quay phim">quay phim</a></li>
-                                                                    </ul>
                                                             </div>
                         </form>
                     </div>
@@ -782,49 +651,7 @@ main{
 <link rel="manifest" href="/manifest.json">
 <div id="fb-root"></div>
 <script type="text/javascript" async>
-    function getTimeRemaining(endtime) {
-        var t = Date.parse(endtime) - Date.parse(new Date());
-        var seconds = Math.floor((t / 1000) % 60);
-        var minutes = Math.floor((t / 1000 / 60) % 60);
-        var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
-        var days = Math.floor(t / (1000 * 60 * 60 * 24));
-        return {
-            'total': t,
-            'days': days,
-            'hours': hours,
-            'minutes': minutes,
-            'seconds': seconds
-        };
-    }
 
-    function initializeClock(id, endtime) {
-        var clock = document.getElementById(id);
-//        var daysSpan = clock.querySelector('.days');
-        var hoursSpan = clock.querySelector('.hours');
-        var minutesSpan = clock.querySelector('.minutes');
-        var secondsSpan = clock.querySelector('.seconds');
-
-        function updateClock() {
-            var t = getTimeRemaining(endtime);
-
-//            daysSpan.innerHTML = t.days;
-            hoursSpan.innerHTML = ('0' + t.hours).slice(-2);
-            minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
-            secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
-
-            if (t.total <= 0) {
-                clearInterval(timeinterval);
-            }
-        }
-
-        updateClock();
-        var timeinterval = setInterval(updateClock, 1000);
-    }
-
-        var deadline = new Date(Date.parse(new Date(1542992399 * 1000)) + 0 * 24 * 60 * 60 * 1000);
-    if($("#clockdiv").is(":visible")) {
-        initializeClock('clockdiv', deadline);
-    }
     </script>
         <script src="/media/js_v2018/bootstrap.min.js"></script>
 <script src="/media/js_v2018/slick.js"></script>
