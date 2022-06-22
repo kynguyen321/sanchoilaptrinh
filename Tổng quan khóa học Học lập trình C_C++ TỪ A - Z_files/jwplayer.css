@@ -10,7 +10,7 @@
   color: #999;
   font-size: 30px;
   font-weight: bold;
-  opacity: 0.5;
+  opacity: .5;
   pointer-events: none;
   cursor: default;
 }
@@ -24,6 +24,7 @@
   text-align: center;
   display: none;
 }
+
 .unica_ads .content_ads {
   position: relative;
   line-height: 35px;
@@ -32,8 +33,9 @@
   text-transform: uppercase;
   font-weight: bold;
   padding: 0px 20px;
-  background-color: rgba(0, 0, 0, 0.7098039216);
+  background-color: #000000b5;
 }
+
 .unica_ads .content_ads a {
   color: white;
   background-color: #f26c50;
@@ -47,7 +49,8 @@
   position: absolute;
   top: 37%;
   left: 50%;
-  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
   font-size: 45px;
   color: #00546f;
 }
@@ -59,7 +62,8 @@
   font-size: 25px;
   left: 50%;
   text-align: center;
-  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
   width: 80%;
   color: #e92334;
 }
@@ -82,12 +86,19 @@
   height: 50px !important;
   font-size: 16px;
 }
-.ub-box-form input::-moz-placeholder {
+
+.ub-box-form input::-webkit-input-placeholder {
   color: #555;
 }
+
 .ub-box-form input:-ms-input-placeholder {
   color: #555;
 }
+
+.ub-box-form input::-ms-input-placeholder {
+  color: #555;
+}
+
 .ub-box-form input::placeholder {
   color: #555;
 }
@@ -95,12 +106,15 @@
 .unica_biz {
   border-top: 1px solid #ccc;
 }
+
 .unica_biz h4 {
   font-size: 15px;
 }
+
 .unica_biz span {
   line-height: 1.5;
 }
+
 .unica_biz a {
   border: 1px solid #ccc;
   margin: 10px 0px;
@@ -110,6 +124,7 @@
   font-weight: bold;
   color: #333;
 }
+
 .unica_biz a:hover {
   background: #f5f5f5;
 }
@@ -118,43 +133,56 @@
   padding: 10px;
   min-height: 300px;
 }
+
 .learn-schedule h3 {
   font-weight: bold;
   padding-bottom: 20px;
 }
+
 .learn-schedule .schedule-box {
   margin: 15px 0;
 }
+
 .learn-schedule .schedule-box .schedule-item {
   position: relative;
 }
+
 .learn-schedule .schedule-box .schedule-item .schedule-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
 }
+
 .learn-schedule .schedule-box .schedule-item .schedule-card .schedule-icon {
   width: 2%;
   text-align: center;
   font-size: 20px;
 }
+
 .learn-schedule .schedule-box .schedule-item .schedule-card .schedule-detail h4 {
   font-weight: bold;
   margin: 0;
 }
+
 .learn-schedule .schedule-box .schedule-item .schedule-option {
   position: absolute;
   right: 2%;
   top: 15px;
 }
+
 .learn-schedule .schedule-box .schedule-item .schedule-option a {
   display: block;
   padding: 8px 5px;
   border-bottom: 1px solid #c3c3c3;
   color: black;
 }
+
 .learn-schedule .schedule-box .schedule-item .schedule-option a:last-child {
   border: none;
 }
+
 .learn-schedule .schedule-box .schedule-item .schedule-option a:hover {
   background-color: #efefef;
 }
@@ -162,19 +190,26 @@
 .step .schedule-item {
   position: relative;
 }
+
 .step .schedule-item .schedule-card {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
 }
+
 .step .schedule-item .schedule-card .schedule-icon {
   width: 5%;
   text-align: center;
   font-size: 20px;
 }
+
 .step .schedule-item .schedule-card .schedule-detail h4 {
   font-weight: bold;
   margin: 0;
 }
+
 .step .schedule-item .schedule-card .schedule-detail p {
   margin: 5px 0 !important;
 }
@@ -183,22 +218,27 @@
   padding: 15px 0;
   display: none;
 }
+
 .step2 .form-group .frequency-box .option2 i {
   display: none;
 }
+
 .step2 .form-group .time-box input, .step2 .form-group .enddate-box input {
   height: 40px;
   border-radius: 0 !important;
   border: 1px solid black;
 }
+
 .step2 .form-group .time-box span, .step2 .form-group .enddate-box span {
   border-radius: 0;
   border: 1px solid;
 }
+
 .step2 .form-group .open-option.active, .step2 .form-group .option-weekly.active, .step2 .form-group .duration-option.active {
   background-color: black;
   color: white;
 }
+
 .step2 .form-group .open-option.active i, .step2 .form-group .option-weekly.active i, .step2 .form-group .duration-option.active i {
   display: block;
 }
@@ -218,9 +258,14 @@
 }
 
 .modal-dialog-centered {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
+
 .modal-dialog-centered .modal-content {
   width: 100%;
 }
@@ -228,34 +273,42 @@
 #schedule-form .close {
   margin-top: -20px;
 }
+
 #schedule-form .breadcrumb {
   background-color: #fff;
   margin-bottom: 0;
   padding-bottom: 5px;
   padding-left: 0;
 }
+
 #schedule-form p {
   margin: 15px 0;
 }
+
 #schedule-form .form-check label {
   margin-left: 10px;
   font-weight: 400;
 }
-#schedule-form input[type=radio] {
+
+#schedule-form input[type="radio"] {
   margin: 10px 0 0;
 }
+
 #schedule-form .modal-body {
   padding-bottom: 0;
 }
+
 #schedule-form .modal-body .step {
   display: none;
 }
+
 #schedule-form .modal-footer {
   padding-right: 0;
 }
 
 .course-popover .detail-popover {
-  transition: all 0.3s ease-in-out;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
   position: absolute;
   top: -35%;
   background-color: #fff;
@@ -264,42 +317,56 @@
   z-index: 99999;
   opacity: 0;
   visibility: hidden;
-  box-shadow: 0 0 0 1px #d1d7dc, 0 2px 4px black, 0 4px 12px black;
+  -webkit-box-shadow: 0 0 0 1px #d1d7dc, 0 2px 4px black, 0 4px 12px black;
+          box-shadow: 0 0 0 1px #d1d7dc, 0 2px 4px black, 0 4px 12px black;
   padding: 10px;
 }
+
 .course-popover .detail-popover .popover-content {
   text-align: justify;
   line-height: 1.5rem;
 }
+
 .course-popover .detail-popover .popover-content .course-complement {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin-bottom: 20px;
 }
+
 .course-popover .detail-popover .popover-content .course-complement .bestseller {
   background-color: #eceb98;
   color: #3d3c0a;
   margin-right: 10px;
   padding: 0 10px;
 }
+
 .course-popover .detail-popover .popover-content .course-complement .update-time {
   color: #1e6055;
 }
+
 .course-popover .detail-popover .popover-content p.description {
   -webkit-line-clamp: 3;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
 .course-popover .detail-popover .popover-content .title-course {
   color: #333;
   font-size: 18px;
 }
+
 .course-popover .detail-popover .popover-content ul {
   margin: 10px;
 }
+
 .course-popover .detail-popover .popover-content li {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
+
 .course-popover .detail-popover .popover-content li span.desc-checked {
   margin-top: 8px;
   min-width: 12px;
@@ -307,11 +374,14 @@
   height: 5px;
   border-left: 2px solid #1c1d1f;
   border-bottom: 2px solid #1c1d1f;
-  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
 }
+
 .course-popover .detail-popover .popover-content li p {
   padding-left: 10px;
 }
+
 .course-popover .detail-popover::before {
   content: "";
   position: absolute;
@@ -319,11 +389,13 @@
   left: 6px;
   border-left: 1px solid #d1d7dc;
   border-bottom: 1px solid #d1d7dc;
-  transform: translateX(-1.2rem) translateY(-1.2rem) scaleY(0.5) rotate(45deg);
+  -webkit-transform: translateX(-1.2rem) translateY(-1.2rem) scaleY(0.5) rotate(45deg);
+          transform: translateX(-1.2rem) translateY(-1.2rem) scaleY(0.5) rotate(45deg);
   height: 25px;
   width: 25px;
   background-color: #fff;
 }
+
 .course-popover:hover .detail-popover {
   opacity: 1;
   visibility: inherit;
@@ -332,7 +404,8 @@
 }
 
 .course-popover-left .detail-popover {
-  transition: all 0.3s ease-in-out;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
   position: absolute;
   top: -35%;
   background-color: #fff;
@@ -341,42 +414,56 @@
   z-index: 99999;
   opacity: 0;
   visibility: hidden;
-  box-shadow: 0 0 0 1px #d1d7dc, 0 2px 4px black, 0 4px 12px black;
+  -webkit-box-shadow: 0 0 0 1px #d1d7dc, 0 2px 4px black, 0 4px 12px black;
+          box-shadow: 0 0 0 1px #d1d7dc, 0 2px 4px black, 0 4px 12px black;
   padding: 10px;
 }
+
 .course-popover-left .detail-popover .popover-content {
   text-align: justify;
   line-height: 1.5rem;
 }
+
 .course-popover-left .detail-popover .popover-content .course-complement {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   margin-bottom: 20px;
 }
+
 .course-popover-left .detail-popover .popover-content .course-complement .bestseller {
   background-color: #eceb98;
   color: #3d3c0a;
   margin-right: 10px;
   padding: 0 10px;
 }
+
 .course-popover-left .detail-popover .popover-content .course-complement .update-time {
   color: #1e6055;
 }
+
 .course-popover-left .detail-popover .popover-content p.description {
   -webkit-line-clamp: 3;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
 .course-popover-left .detail-popover .popover-content .title-course {
   color: #333;
   font-size: 18px;
 }
+
 .course-popover-left .detail-popover .popover-content ul {
   margin: 10px;
 }
+
 .course-popover-left .detail-popover .popover-content li {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
+
 .course-popover-left .detail-popover .popover-content li span.desc-checked {
   margin-top: 8px;
   min-width: 12px;
@@ -384,11 +471,14 @@
   height: 5px;
   border-left: 2px solid #1c1d1f;
   border-bottom: 2px solid #1c1d1f;
-  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
 }
+
 .course-popover-left .detail-popover .popover-content li p {
   padding-left: 10px;
 }
+
 .course-popover-left .detail-popover::after {
   content: "";
   position: absolute;
@@ -396,11 +486,13 @@
   right: -32px;
   border-right: 1px solid #d1d7dc;
   border-bottom: 1px solid #d1d7dc;
-  transform: translateX(-1.2rem) translateY(-1.2rem) scaleY(0.5) rotate(-45deg);
+  -webkit-transform: translateX(-1.2rem) translateY(-1.2rem) scaleY(0.5) rotate(-45deg);
+          transform: translateX(-1.2rem) translateY(-1.2rem) scaleY(0.5) rotate(-45deg);
   height: 25px;
   width: 25px;
   background-color: #fff;
 }
+
 .course-popover-left:hover .detail-popover {
   opacity: 1;
   visibility: inherit;
@@ -409,12 +501,15 @@
 }
 
 .d-flex {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
   display: flex !important;
 }
 
 .filter-mylist div {
   padding: 0 !important;
 }
+
 .filter-mylist select {
   width: 100% !important;
 }
@@ -422,22 +517,28 @@
 .list-vouchers {
   padding: 15px 0;
 }
+
 .list-vouchers button {
   border: none;
 }
+
 .list-vouchers .voucher {
   height: 120px;
   padding-right: 0;
   margin-bottom: 15px;
 }
+
 .list-vouchers .voucher .item {
   height: 100%;
-  box-shadow: 0.125rem 0.125rem 0.3125rem rgba(0, 0, 0, 0.07);
+  -webkit-box-shadow: 0.125rem 0.125rem 0.3125rem rgba(0, 0, 0, 0.07);
+          box-shadow: 0.125rem 0.125rem 0.3125rem rgba(0, 0, 0, 0.07);
 }
+
 .list-vouchers .voucher .head {
   background-color: #0975b4;
   position: relative;
 }
+
 .list-vouchers .voucher .head .voucher-logo {
   text-align: center;
   font-weight: bold;
@@ -447,18 +548,21 @@
   font-size: 45px !important;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
+
 .list-vouchers .voucher .head .left {
   position: absolute;
   top: 0.3125rem;
   left: -4px;
   width: 0.25rem;
   height: calc(100% - 0.4375rem);
-  background: radial-gradient(circle at 0 0.25rem, rgba(255, 255, 255, 0) 0, rgba(255, 255, 255, 0) 0.1875rem, #0975b4 0);
+  background: radial-gradient(circle at 0 0.25rem, #ffffff00 0, #ffffff00 0.1875rem, #0975b4 0);
   background-size: 0.25rem 0.625rem;
   background-repeat: repeat-y;
 }
+
 .list-vouchers .voucher .head .left::before {
   content: "";
   top: -5px;
@@ -467,6 +571,7 @@
   height: 5px;
   background-color: #0975b4;
 }
+
 .list-vouchers .voucher .head .left::after {
   content: "";
   bottom: -2px;
@@ -475,6 +580,7 @@
   height: 4px;
   background-color: #0975b4;
 }
+
 .list-vouchers .voucher .content {
   border: 1px solid #cbcbcb;
   padding: 10px;
@@ -482,18 +588,23 @@
   border-bottom-right-radius: 3px;
   background-color: white;
 }
+
 .list-vouchers .voucher .content .redirect {
   text-align: end;
 }
+
 .list-vouchers .voucher .content .redirect a {
   color: #f26c4d;
 }
+
 .list-vouchers .voucher .content .item-name {
   font-size: 16px;
 }
+
 .list-vouchers .voucher .content .price-sale {
   padding: 10px 15px;
 }
+
 .list-vouchers .voucher .content .price-sale p {
   width: -webkit-fit-content;
   width: -moz-fit-content;
@@ -504,10 +615,12 @@
   font-size: 13px;
   color: #f26c4d;
 }
+
 .list-vouchers .voucher .content .voucher-action {
   padding: 7px 15px;
   text-align: end;
 }
+
 .list-vouchers .voucher .content .voucher-action .save-voucher {
   min-width: 80px;
   line-height: 23px;
@@ -515,6 +628,7 @@
   border-radius: 3px;
   color: white;
 }
+
 .list-vouchers .voucher .content .voucher-action a {
   width: -webkit-fit-content;
   width: -moz-fit-content;
@@ -525,9 +639,11 @@
   font-size: 13px;
   color: #f26c4d;
 }
+
 .list-vouchers .voucher .content .expire-date {
   color: #f26c4d;
 }
+
 .list-vouchers .voucher .content .condition a {
   color: #00546f;
 }
@@ -542,69 +658,85 @@
   width: 25rem;
   height: 40rem;
 }
+
 #voucher_detail .modal-dialog .modal-content {
   height: 100%;
   border-radius: 0;
 }
+
 #voucher_detail .modal-dialog .modal-content .modal-body {
   height: 100%;
   padding: 0;
 }
+
 #voucher_detail .modal-dialog .modal-content .modal-body .voucher-head {
   height: 20%;
   padding: 0 15px;
   background-image: url("../images_v2021/rainbow.jpg");
   position: relative;
 }
+
 #voucher_detail .modal-dialog .modal-content .modal-body .voucher-head .voucher {
   padding-right: 15px;
   position: absolute;
   bottom: -45px;
 }
+
 #voucher_detail .modal-dialog .modal-content .modal-body .voucher-head .voucher .content {
   background-color: white;
   height: 100%;
 }
+
 #voucher_detail .modal-dialog .modal-content .modal-body .voucher-head .voucher .content .item-name {
   font-size: 14px;
   height: 40%;
 }
+
 #voucher_detail .modal-dialog .modal-content .modal-body .voucher-head .voucher .content .price-sale {
   height: 40%;
   padding: 10px 0;
 }
+
 #voucher_detail .modal-dialog .modal-content .modal-body .voucher-head .voucher .content .price-sale p {
   font-size: 10px;
 }
+
 #voucher_detail .modal-dialog .modal-content .modal-body .voucher-content {
   overflow: auto;
   height: 67%;
   margin-top: 30px;
   padding: 0 15px;
 }
+
 #voucher_detail .modal-dialog .modal-content .modal-body .voucher-content::-webkit-scrollbar {
   background-color: #F5F5F5;
   border-radius: 10px;
   width: 6px;
 }
+
 #voucher_detail .modal-dialog .modal-content .modal-body .voucher-content::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.44, #cfd0d2), color-stop(0.72, #a4a8ac), color-stop(0.86, #848586));
 }
+
 #voucher_detail .modal-dialog .modal-content .modal-body .voucher-content label {
   font-size: 16px;
 }
+
 #voucher_detail .modal-dialog .modal-content .modal-body .voucher-content p {
   font-size: 14px;
   color: #8b8d8f;
   line-height: 20px;
 }
+
 #voucher_detail .modal-dialog .modal-content .modal-body .voucher-content div {
   margin: 15px 0;
 }
+
 #voucher_detail .modal-dialog .modal-content .modal-body .voucher-foot {
   padding: 0 15px;
 }
+
 #voucher_detail .modal-dialog .modal-content .modal-body .voucher-foot button {
   width: 100%;
   line-height: 35px;
@@ -613,12 +745,22 @@
   border-radius: 3px;
   color: white;
 }
+
 #voucher_detail .modal-dialog .modal-content .modal-body .voucher-foot button:hover {
   background-color: #e7674d;
 }
 
 .cart-voucher {
   bottom: -45px !important;
+}
+
+.unica-about-block-5 .custom-text, .unica-about-block-6 .custom-text {
+  line-height: 25px;
+  text-align: justify;
+}
+
+.box-about-bot {
+  min-height: 360px !important;
 }
 
 @-webkit-keyframes myfirst {
@@ -642,39 +784,42 @@
     top: 85%;
   }
 }
+
 @font-face {
   font-family: certificateFullName;
   src: url(../../fonts/UTMFrenchVanilla.ttf);
 }
+
 @font-face {
   font-family: certificateCourseName;
   src: url(../../fonts/SVN-NEXABOLD.TTF);
 }
+
 @media (max-width: 992px) {
   .preview-certificate-full-name {
     top: 36%;
     font-size: 40px;
   }
-
   .preview-certificate-course-name {
     font-size: 15px;
   }
-
   .preview-certificate-number {
     font-size: 11px;
   }
 }
+
 @media (min-width: 576px) {
   .modal-dialog-centered {
     min-height: calc(100% - 3.5rem);
   }
 }
+
 @media (min-width: 375px) {
   .list-vouchers .voucher {
-    height: 135px;
+    height: 150px;
   }
-
   .expire-date {
     font-size: 12px;
   }
-}/*# sourceMappingURL=jwplayer.css.map */
+}
+/*# sourceMappingURL=jwplayer.css.map */

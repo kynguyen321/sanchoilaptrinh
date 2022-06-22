@@ -1,0 +1,539 @@
+.pull-right{
+    float:right;
+}
+.text-right{
+    text-align:right;
+}
+.btn-xs-wp.btn-wp{padding:1px 5px;font-size:12px;line-height:1.5;border-radius:3px}
+.btn-success-wp{
+    background: #0078d1;
+    color: #fff!important;
+}
+.btn-primary-wp{
+    background:#0078d1;
+    color: #fff!important;
+}
+.btn-danger-wp{
+    background:#f44336;
+    color: #fff!important;
+}
+.btn-default-wp{
+    box-shadow: none;
+    background: #fff!important;
+    color: #0078d1!important;
+}
+.btn-wp {
+    box-sizing: border-box;
+    display: inline-block;
+    padding: .375rem 1rem;
+    font-size: .9625em;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    font-family: inherit;
+    letter-spacing: .05em;
+    transition: background-color 75ms ease;
+    margin: 0;
+}
+.clearfix{
+    clear:both;
+}
+.webpush-page-content-bell {
+    position: relative;
+    left: 20px;
+}
+.webpush-page-content-bell .modal-footer{
+    border: none;
+    padding: 15px !important;
+    text-align: right !important;
+    display: block !important;
+}
+.webpush-page-content-bell .modal-body img{
+    width: 45px;
+    top: 3px;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+    height: 45px;
+}
+.webpush-page-content-bell .modal-body .webpush-body-icon {
+    box-sizing: border-box;
+    float: left;
+    width: 80px;
+    height: 80px;
+    position: relative;
+}
+.webpush-page-content-bell .modal-body .webpush-body-title {
+    box-sizing: border-box;
+    padding: 0 0 0 1em;
+    float: left;
+    width: calc(100% - 80px);
+    line-height: 1.45em;
+    -o-user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default;
+    color: #051b2c!important;
+}
+.webpush-page-content-bell .modal-body .clearfix {
+    display: block;
+    -webkit-backface-visibility: initial!important;
+    backface-visibility: initial!important;
+}
+@media (min-width: 768px) {
+    .webpush-page-content-bell .modal-dialog {
+        width: 500px !important;
+        margin: 0 auto;
+    }
+    #webpushConfirmModal .col-md-10 {
+        width: 79%;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .webpush-page-content-bell {
+        left: 5px;
+    }
+    /* For mobile phones: */
+    .webpush-page-content-bell .modal-footer {
+        padding: 0 15px !important;
+    }
+
+    #webpushConfirmModal .modal-content {
+        height: 160px !important;
+    }
+}
+
+.webpush-button-bell {
+    fill: #e54b4d;
+    border: none;
+    position: fixed;
+    background: no-repeat;
+    outline: none;
+    bottom: 20px;
+    z-index: 999999999999;
+    cursor: pointer;
+    display: inline-block;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.webpush-button-bell.button-right .popuptext{
+    left: -170px !important;
+}
+.webpush-button-bell.button-right {
+    right: 30px !important;
+}
+.webpush-popup .button-hidden {
+    display: none !important;
+}
+.webpush-button-bell img {
+    width: 40px;
+    height: 40px;
+}
+.webpush-button-bell .popuptext p img {
+    width: 12px;
+    height: 10px;
+    display: inline-block;
+}
+.webpush-button-bell .popuptext img {
+    width: 30px;
+    height: 30px;
+}
+
+/* The actual popup */
+.webpush-popup .popuptext {
+    visibility: hidden;
+    width: 250px;
+    background-color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    /*left: 60%;*/
+    margin-left: 0;
+    border: 1px solid #e2e2e2;
+}
+
+.webpush-popup .webpush-popuptext-success {
+    display: none;
+    width: 200px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 10%;
+}
+
+.webpush-popup .span-right {
+    right: 50px;
+}
+
+.webpush-popup .span-left {
+    left: 50px;
+}
+
+/* Popup arrow */
+.webpush-popup .webpush-button-bell.button-right .popuptext::after {
+    left: 120%;
+}
+.webpush-popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 48%;
+    margin-left: -108px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #fff transparent transparent transparent;
+}
+
+.notification-image-opacity {
+    opacity: 0.5;
+}
+#webpush-status-notification {
+    opacity: 0.5;
+}
+#webpush-status-notification:hover {
+    opacity: 1;
+}
+/* Toggle this class - hide and show the popup */
+.webpush-popup .show {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+}
+
+#webpushConfirmModal .modal-content {
+    background: #ffffff !important;
+}
+.webpush-noti-icon {
+    margin: 0 10px;
+    float: left;
+}
+.webpush-noti-text {
+    display: inline-block;
+    width: calc(100% - 100px);
+}
+
+#webpush-slidedown-container.slide-down {
+    top: 0;
+}
+#webpush-slidedown-container {
+    font-size: 16px;
+    position: fixed;
+    z-index: 2258594000;
+    left: 0;
+    right: 0;
+    -webkit-font-smoothing: initial;
+}
+#webpush-slidedown-container.slide-down #webpush-slidedown-dialog {
+    width: 450px;
+    -webkit-animation-name: slideDownEnter;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease-out;
+    -webkit-animation-duration: .4s;
+    -webkit-animation-fill-mode: forwards;
+    animation-name: slideDownEnter;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-out;
+    animation-duration: .4s;
+    animation-fill-mode: forwards;
+}
+#webpush-slidedown-container #webpush-slidedown-dialog {
+    box-sizing: border-box;
+    max-width: 100%;
+    margin: 0 auto;
+    box-shadow: 0 1px 6px rgba(5,27,44,.06),0 2px 32px rgba(5,27,44,.16)!important;
+    background: #fff!important;
+    padding: 20px 20px 15px 20px;
+    border-bottom-left-radius: .5em;
+    border-bottom-right-radius: .5em;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+}
+.webpush-reset, .webpush-reset div {
+    display: block;
+    background-attachment: scroll;
+    background-color: transparent;
+    background-image: none;
+    background-position: 0 0;
+    background-repeat: repeat;
+    border-color: #000;
+    border: medium none currentColor;
+    bottom: auto;
+    clear: none;
+    clip: auto;
+    color: inherit;
+    counter-increment: none;
+    counter-reset: none;
+    cursor: auto;
+    direction: inherit;
+    float: none;
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-variant: normal;
+    font-weight: inherit;
+    height: auto;
+    left: auto;
+    letter-spacing: normal;
+    line-height: inherit;
+    list-style-type: inherit;
+    list-style-position: outside;
+    list-style-image: none;
+    margin: 0;
+    max-height: none;
+    max-width: none;
+    min-height: 0;
+    min-width: 0;
+    opacity: 1;
+    outline: medium none invert;
+    overflow: visible;
+    padding: 0;
+    position: static;
+    quotes: "" "";
+    right: auto;
+    table-layout: auto;
+    text-align: inherit;
+    text-decoration: inherit;
+    text-indent: 0;
+    text-transform: none;
+    top: auto;
+    unicode-bidi: normal;
+    vertical-align: baseline;
+    visibility: inherit;
+    white-space: normal;
+    width: auto;
+    word-spacing: normal;
+    z-index: auto;
+    background-origin: padding-box;
+    background-clip: border-box;
+    background-size: auto;
+    -o-border-image: none;
+    border-image: none;
+    border-radius: 0;
+    box-shadow: none;
+    box-sizing: content-box;
+    column-count: auto;
+    column-gap: normal;
+    column-rule: medium none #000;
+    column-span: 1;
+    column-width: auto;
+    -webkit-font-feature-settings: normal;
+    font-feature-settings: normal;
+    overflow-x: visible;
+    overflow-y: visible;
+    -webkit-hyphens: manual;
+    -ms-hyphens: manual;
+    hyphens: manual;
+    -ms-perspective: none;
+    -o-perspective: none;
+    perspective: none;
+    -ms-perspective-origin: 50% 50%;
+    -o-perspective-origin: 50% 50%;
+    perspective-origin: 50% 50%;
+    -webkit-backface-visibility: visible;
+    backface-visibility: visible;
+    text-shadow: none;
+    transition: all 0s ease 0s;
+    transform: none;
+    transform-origin: 50% 50%;
+    transform-style: flat;
+    word-break: normal;
+}
+.webpush-reset {
+    font-size: medium;
+    line-height: 1;
+    direction: ltr;
+    text-align: left;
+    text-align: start;
+    font-family: Times New Roman,Times,serif;
+    color: #000;
+    font-style: normal;
+    font-weight: 400;
+    text-decoration: none;
+    list-style-type: disc;
+}
+#webpush-slidedown-container #webpush-slidedown-dialog .slidedown-body {
+    box-sizing: border-box;
+    margin: 0;
+}
+#webpush-slidedown-container #webpush-slidedown-dialog .slidedown-body-icon {
+    box-sizing: border-box;
+    float: left;
+    width: 60px;
+    height: 60px;
+    position: relative;
+}
+.popuptext #webpush-slidedown-dialog .slidedown-body-icon {
+    box-sizing: border-box;
+    float: left;
+    width: 30px;
+    height: 30px;
+    position: relative;
+    margin-right: 5px;
+}
+#webpush-slidedown-container #webpush-slidedown-dialog .slidedown-body-icon img.default-icon {
+    width: 100%;
+}
+#webpush-slidedown-container #webpush-slidedown-dialog .slidedown-body-icon img {
+    width: 100%;
+    height: 100%;
+}
+.webpush-reset img {
+    border: 0;
+}
+#webpush-slidedown-container #webpush-slidedown-dialog .slidedown-body-message {
+    box-sizing: border-box;
+    padding: 0 0 0 1em;
+    float: left;
+    width: calc(100% - 80px);
+    line-height: 1.45em;
+    -o-user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default;
+    color: #051b2c!important;
+}
+.popuptext #webpush-slidedown-dialog .slidedown-body-message {
+    font-size: 14px;
+    box-sizing: border-box;
+    text-align: left;
+    -o-user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default;
+    color: #051b2c!important;
+}
+.popuptext .slidedown-footer{
+    text-align:center;
+    margin-top: 10px;
+}
+#webpush-slidedown-container #webpush-slidedown-dialog .clearfix {
+    display: block;
+    -webkit-backface-visibility: initial!important;
+    backface-visibility: initial!important;
+}
+#webpush-slidedown-container #webpush-slidedown-dialog .slidedown-footer {
+    position: relative;
+}
+#webpush-slidedown-container #webpush-slidedown-dialog .slidedown-button.primary {
+    background: #0078d1;
+    color: #fff!important;
+    transition: 75ms linear;
+}
+#webpush-slidedown-container #webpush-slidedown-dialog .align-right {
+    float: right;
+}
+#webpush-slidedown-container #webpush-slidedown-dialog .slidedown-button {
+    padding: 8px;
+    border-radius: .25em;
+    display: -ms-flexbox;
+    min-width: 80px;
+}
+#webpush-slidedown-container #webpush-slidedown-dialog button {
+    box-sizing: border-box;
+    display: inline-block;
+    padding: .375rem 1rem;
+    font-size: .9625em;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+    font-family: inherit;
+    letter-spacing: .05em;
+    transition: background-color 75ms ease;
+    margin: 0;
+}
+#webpush-slidedown-container #webpush-slidedown-dialog .primary.slidedown-button+.secondary.slidedown-button {
+    margin-right: .714em;
+}
+#webpush-slidedown-container #webpush-slidedown-dialog .slidedown-button.secondary {
+    box-shadow: none;
+    background: #fff!important;
+    color: #0078d1!important;
+}
+#webpush-slidedown-container #webpush-slidedown-dialog .align-right {
+    float: right;
+}
+.clearfix:before {
+    display: table;
+    content: " ";
+}
+#webpush-slidedown-container #webpush-slidedown-dialog .clearfix:after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+.slidedown-button p {
+    font-size: 10px;
+    float: left;
+    color: #ccc;
+}
+.slidedown-button img {
+    width: 12px;
+    height: 10px;
+    margin-right: 2px;
+    opacity: 0.5;
+    vertical-align: middle;
+    display: inline-block;
+}
+#webpush-slidedown-container #webpush-slidedown-dialog button:focus {
+    outline: 0;
+}
+.hidden, .webpush-button-bell.button-none {
+    display: none !important;
+}
+p.copyright-bell {
+    margin: 5px;
+}
+.copyright-box-wp {
+    display: inline-block;
+    float: left;
+}
+.btn-stop-wp{
+    float: right;
+    margin-right: 10px;
+}

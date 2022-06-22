@@ -1,0 +1,193 @@
+﻿window.access_token='';
+function setCookie(cname, cvalue, exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    let expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+function getCookie(cname) {
+    let name = cname + "=";
+    let ca = document.cookie.split(';');
+    for(let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+}
+function convertAlias(alias, concat = '') {
+    if(alias){
+        var str = alias;
+        str = str.toLowerCase();
+        str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g,"a");
+        str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g,"e");
+        str = str.replace(/ì|í|ị|ỉ|ĩ/g,"i");
+        str = str.replace(/ò|ó|ọ|ỏ|õ|ô|ồ|ố|ộ|ổ|ỗ|ơ|ờ|ớ|ợ|ở|ỡ/g,"o");
+        str = str.replace(/ù|ú|ụ|ủ|ũ|ư|ừ|ứ|ự|ử|ữ/g,"u");
+        str = str.replace(/ỳ|ý|ỵ|ỷ|ỹ/g,"y");
+        str = str.replace(/đ/g,"d");
+        str = str.replace(/!|@|%|\^|\*|\(|\)|\+|\=|\<|\>|\?|\/|,|\.|\:|\;|\'|\"|\&|\#|\[|\]|~|\$|_|`|-|{|}|\||\\/g," ");
+        str = str.replace(/ + /g," ");
+        str = str.trim();
+        if(concat){
+            str = str.replace(/ /g,"-");
+        }
+        return str;
+    }
+    else{
+        return alias;
+    }
+}
+function convertTitle(title) {
+    title = convertAlias(title);
+    return title.toLowerCase();
+}
+function webPushIncludeJs(file) {
+    const script  = document.createElement('script');
+    script.src  = file;
+    script.type = 'text/javascript';
+    document.getElementsByTagName('head').item(0).appendChild(script);
+}
+function getParam( name, url ){
+    if (!url) url = location.href;
+    name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
+    var regexS = "[\\?&]"+name+"=([^&#]*)";
+    var regex = new RegExp( regexS );
+    var results = regex.exec( url );
+    return results == null ? null : results[1];
+}
+const WEB_BASE = "https://salekit.io/";
+const patthname = window.location.pathname;
+const url_segment = patthname.slice(1);
+const origin_url = location.protocol + '//' + location.host + location.pathname;
+var salekitio_info = localStorage.getItem('salekitio_info');
+var email_ultramailer = localStorage.getItem('email_ultramailer');
+function initGoalUltramailer(){
+    //console.log("READY");
+    if(getParam('salekitio_info')){
+        salekitio_info = getParam('salekitio_info', '');
+        localStorage.setItem('salekitio_info', salekitio_info);
+        document.cookie = `salekitio_info=${salekitio_info.split('_')[0]}; expires=Session`;
+    }
+    if(getParam('email_ultramailer')){
+        email_ultramailer = getParam('email_ultramailer', '');
+        localStorage.setItem('email_ultramailer', email_ultramailer);
+    }
+    var linkScript = document.getElementById("ultra_embed");
+    var url = new URL(linkScript.src);
+    var id = '';
+    if(url){
+        id = url.searchParams.get("id");
+    }
+    let goal_save = true;
+    if(getCookie('goal_save_'+ salekitio_info)){
+        goal_save = false;
+    }
+    jQuery.ajax({
+        url: WEB_BASE + 'api/goal/embed',
+        type: "GET",
+        data: {id, origin_url, salekitio_info, goal_save, email_ultramailer},
+    })
+        .done(function (res) {
+            if (res.triggers && res.triggers.length > 0) {
+                let addTag = [];
+                let removeTag = [];
+                let add_tag_data = [];
+                let remove_tag_data = [];
+                var trigger_id = [];
+                let title = document.querySelector('title') ? document.querySelector('title').textContent : '';
+                title = title.toLowerCase();
+                title = convertAlias(title);
+                let trigger_data_ut = res.triggers;
+                if(trigger_data_ut){
+                    localStorage.setItem('trigger_data_ut', JSON.stringify(trigger_data_ut));
+                    for(let i in trigger_data_ut){
+                        let item = trigger_data_ut[i];
+                        let key_title_data = item.key_title.split(',');
+                        let check_title = key_title_data.find(i => title.indexOf(convertTitle(i)) > -1);
+                        let check_url = key_title_data.find(i => url_segment.indexOf(i) > -1 );
+                        if (check_title || check_url) {
+                            if(item.add_tag){
+                                add_tag_data = item.add_tag.split(',');
+                            }
+                            if(item.remove_tag){
+                                remove_tag_data = item.remove_tag.split(',');
+                            }
+                            addTag = addTag.concat(add_tag_data);
+                            removeTag = removeTag.concat(remove_tag_data);
+                            trigger_id.push(item.id.toString())
+                        }
+                    }
+                    if (salekitio_info && (addTag.length > 0 || removeTag.length >0 || trigger_id.length > 0)){
+                        jQuery.ajax({
+                            url: WEB_BASE + 'api/tags',
+                            type: "GET",
+                            data: {salekitio_info: salekitio_info,  trigger: trigger_id.join(','), add_tag: addTag.join(','), remove_tag: removeTag.join(',')}
+                        }).done(function (res) {
+                        });
+                    }
+                }
+                else{
+                    localStorage.removeItem("trigger_data_ut");
+                }
+            }
+
+            // Goal
+            if(res.is_goal){
+                setCookie('goal_save_'+salekitio_info, origin_url, 1);
+            }
+        })
+    if (salekitio_info) {
+        let trigger_data_ut = JSON.parse(localStorage.getItem('trigger_data_ut'));
+        var open = window.XMLHttpRequest.prototype.open;
+
+        function openReplacement(method, url, async, user, password) {
+            let first_key = url.slice(0,1);
+            let url_convert = url;
+            if(first_key == '/'){
+                url_convert = url_convert.slice(1);
+            }
+            let url_split = url_convert.split('?');
+            url_convert = url_split[0];
+
+            // Nếu là Wordpress có dấu ? đầu tiên
+            if(!url_convert){
+                url_convert = url_split[1];
+            }
+            let addTag = [];
+            let removeTag = [];
+            let trigger = [];
+            for (let i in trigger_data_ut) {
+                let item = trigger_data_ut[i];
+                let key_title_data = item.key_title.split(',');
+                let check_request_url = (key_title_data) ? key_title_data.find(i => url_convert.indexOf(i) > -1) : '';
+                if (check_request_url) {
+                    addTag = addTag.concat(item.add_tag);
+                    removeTag = removeTag.concat(item.remove_tag);
+                    trigger = trigger.push(i.id);
+                }
+            }
+
+            if(salekitio_info && (addTag.length > 0 || removeTag.length > 0)){
+                try{
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () { };
+                    xhttp.open("GET", WEB_BASE + 'api/tags/?salekitio_info=' + salekitio_info + '&add_tag=' + addTag.join(',') + '&remove_tag=' + removeTag.join(','), true);
+                    xhttp.send();
+                }catch(e){
+                }
+            }
+            return open.apply(this, arguments);
+        }
+
+        window.XMLHttpRequest.prototype.open = openReplacement;
+    }
+}
+if (!window.jQuery) {
+    webPushIncludeJs('https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js');
+}
+if (!window.jQuery) { setTimeout(function() { initGoalUltramailer(); }, 2000) } else{ initGoalUltramailer(); }

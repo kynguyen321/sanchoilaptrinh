@@ -761,7 +761,7 @@ a.tag-item:after {    background: 0 0;    border-bottom: 15px solid #f4f4f4;    
 .unica-back-course { float: right; margin-right: 20px; }
 .u-txt-back a { font-size: 16px; margin-top: 13px; font-weight: bold; color: #fff; }
 
-.ua-btn-bn { float: left; padding: 0;}
+.ua-btn-bn { float: left; padding: 0}
 .ua-btn-bn a {background: #ccc; color: #333; padding: 6px; text-align: center; display: inline-block; border-radius: 6px;  margin: 2px;}
 .ua-btn-bn i { width: 14px; }
 /*.ua-btn-bn a:last-child { padding-left: 20px; }*/
@@ -4183,7 +4183,7 @@ a.btn.btn-success.margin-top-10 { line-height: 30px; border-radius: 4px;backgrou
     .ql-dl-box p { font-size: 14px; }
     .ql-dl-box img { width: 50%; }
     .col-3-steps { width: auto; }
-    .unica-teacher-top { height: 320px; background-position: center; padding: 20px 0; }
+    .unica-teacher-top { height: 320px; background-position: center; padding: 20px 0; margin-top: 44px; }
     .unica-teacher-top .p-teacher { font-size: 18px; }
     .unica-teacher-top p { font-size: 24px;  margin-bottom: 42px; }
     .unica-teacher-top h1 {font-size: 32px !important; margin-top: 10px;}
@@ -4236,7 +4236,7 @@ a.btn.btn-success.margin-top-10 { line-height: 30px; border-radius: 4px;backgrou
     .iq-complete-box .congratulations { font-size: 18px; }
     .iq-result-box { display: inline-block; }
     .img-result img { margin: 0; }
-    .unica-affiliate-top { padding:20px 0; height: 300px; }
+    .unica-affiliate-top { padding:20px 0; height: 300px; margin-top: 44px;}
     .unica-affiliate-top p { font-size: 24px; margin-bottom: 20px; }
     .unica-affiliate-top span { font-size: 14px; }
     .unica-affiliate-top a {      padding: 7px 15px; font-size: 16px; margin: 0; }
