@@ -1,0 +1,27 @@
+<html>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <video id="video" style="position:fixed; top:0; left:0; bottom:0; right:0; width:100%; height:100%; border:none; margin:0; padding:0; overflow:hidden; z-index:999999;" controls></video>
+    <script>
+    if(Hls.isSupported())
+    {
+        var video = document.getElementById('video');
+        var hls = new Hls();
+        hls.loadSource('https://stream.unica.vn/unica/_definst_/unica/224/22314/720.mp4/playlist.m3u8?wowzatokenendTime=1655866561&wowzatokenstartTime=1655859361&wowzatokenhash=pKAX3X3cYABk0eBbFmm559byUPx7XiEBmosTG14ZYu4=&uid=546742&expired=1655859791&token=375c398ce5f08f52f61279cc69c4b3dc75760afb');
+        hls.attachMedia(video);
+        hls.on(Hls.Events.MANIFEST_PARSED,function()
+        {
+            video.play();
+        });
+    }
+    else if (video.canPlayType('application/vnd.apple.mpegurl'))
+    {
+        video.src = 'https://stream.unica.vn/unica/_definst_/unica/224/22314/720.mp4/playlist.m3u8?wowzatokenendTime=1655866561&wowzatokenstartTime=1655859361&wowzatokenhash=pKAX3X3cYABk0eBbFmm559byUPx7XiEBmosTG14ZYu4=&uid=546742&expired=1655859791&token=375c398ce5f08f52f61279cc69c4b3dc75760afb';
+        video.addEventListener('canplay',function()
+        {
+            video.play();
+        });
+    }
+    </script>
+  </body>
+</html>
