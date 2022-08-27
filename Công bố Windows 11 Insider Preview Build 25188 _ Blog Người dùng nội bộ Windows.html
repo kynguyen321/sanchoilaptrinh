@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<!-- saved from url=(0103)https://blogs.windows.com/windows-insider/2022/08/24/announcing-windows-11-insider-preview-build-25188/ -->
+<html lang="vi" class="js translated-ltr" style="height: 100%;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+	
+		
+	<meta name="author" content="Windows Insider Blog">
+	<link rel="pingback" target="_blank" href="https://blogs.windows.com/windows-insider/xmlrpc.php">
+
+		<meta name="HandheldFriendly" content="True">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<meta name="apple-mobile-web-app-title" content="Announcing Windows 11 Insider Preview Build 25188">
+
+		<meta name="application-name" content="Windows Insider Blog">
+
+	
+        <script async="" src="./Công bố Windows 11 Insider Preview Build 25188 _ Blog Người dùng nội bộ Windows_files/clarity.js.tải xuống"></script><script type="text/javascript">
+            function is_browser() {
+                return (
+                    navigator.userAgent.indexOf("Chrome") !== - 1 ||
+                    navigator.userAgent.indexOf("Opera") !== - 1 ||
+                    navigator.userAgent.indexOf("Firefox") !== - 1 ||
+                    navigator.userAgent.indexOf("MSIE") !== - 1 ||
+                    navigator.userAgent.indexOf("Safari") !== - 1 ||
+                    navigator.userAgent.indexOf("Edge") !== - 1
+                );
+            }
+
+            function less_than_ie11() {
+                return (
+                    !window.atob || // IE9 and below
+                    Function('/*@cc_on return document.documentMode===10@*/')() // IE10
+                );
+            }
+
+            function not_excluded_page() {
+                return (
+                    window.location.href.indexOf("/unsupported-browser/") === - 1 &&
+                    document.title.toLowerCase().indexOf('page not found') === - 1
+                );
+            }
+
+            if (is_browser() && less_than_ie11() && not_excluded_page()) {
+                window.location = location.protocol + '//' + location.host + location.pathname + '/unsupported-browser/';
+            }
+        </script>
+
+		<meta property="og:title" content="Announcing Windows 11 Insider Preview Build 25188">
+<meta property="og:description" content="Hello Windows Insiders, today we are releasing Windows 11 Insider Preview Build 25188 to the Dev Channel.
+TL;DR
+
+ 	We are trying out a new touch keyboard setting in this build and Windows Terminal is">
+<meta property="og:image" content="https://blogs.windows.com/wp-content/uploads/prod/sites/44/2021/08/social-media-graphic.png">
+<meta property="og:url" content="https://blogs.windows.com/windows-insider/2022/08/24/announcing-windows-11-insider-preview-build-25188/">
+<meta property="twitter:card" content="summary_large_image">
+<script type="text/javascript" src="./Công bố Windows 11 Insider Preview Build 25188 _ Blog Người dùng nội bộ Windows_files/microsoft-cookie-list.js.tải xuống"></script>
+    <script src="./Công bố Windows 11 Insider Preview Build 25188 _ Blog Người dùng nội bộ Windows_files/yett"></script>
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+	<!-- This site is optimized with the Yoast SEO plugin v18.8 - https://yoast.com/wordpress/plugins/seo/ -->
+	<title>Công bố Windows 11 Insider Preview Build 25188 |  Blog Người dùng nội bộ Windows</title>
+	<link rel="canonical" target="_blank" href="https://blogs.windows.com/windows-insider/2022/08/24/announcing-windows-11-insider-preview-build-25188/">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:type" content="article">
+	<meta property="og:site_name" content="Windows Insider Blog">
+	<meta property="article:published_time" content="2022-08-24T17:03:44+00:00">
+	<meta property="article:modified_time" content="2022-08-24T17:07:45+00:00">
+	<meta name="twitter:label1" content="Written by">
+	<meta name="twitter:data1" content="Brandon LeBlanc">
+	<!-- / Yoast SEO plugin. -->
+
+
+<link rel="dns-prefetch" target="_blank" href="https://az416426.vo.msecnd.net/">
+<link rel="dns-prefetch" target="_blank" href="https://s.w.org/">
+<link rel="dns-prefetch" target="_blank" href="https://www.clarity.ms/">
+		<script type="text/javascript">
+			(function(c,l,a,r,i,t,y){
+				c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+				t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+				y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+			})(window, document, "clarity", "script", "6rxyheipdi");
+		</script>
+	<link rel="stylesheet" id="wp-block-library-css" target="_blank" href="./Công bố Windows 11 Insider Preview Build 25188 _ Blog Người dùng nội bộ Windows_files/style.min.css" type="text/css" media="all">
+<style id="global-styles-inline-css" type="text/css">
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+</style>
+<link rel="stylesheet" id="core-theme-base-css" target="_blank" href="./Công bố Windows 11 Insider Preview Build 25188 _ Blog Người dùng nội bộ Windows_files/master.min.css" type="text/css" media="all">
+<link rel="stylesheet" id="core-theme-print-css" target="_blank" href="./Công bố Windows 11 Insider Preview Build 25188 _ Blog Người dùng nội bộ Windows_files/print.min.css" type="text/css" media="print">
+
+<script type="text/javascript" id="microsoft-1ds-metrics-js-js-before">
+var oneds_object = {"tenant_key":"7d4ce74a91504302bd5324e47e7e097d-abd2d9b7-1c79-4953-aae5-2429ca917764-6531","market":"en-us","pagetype":"Post","name":"Announcing Windows 11 Insider Preview Build 25188"}
+</script>
+
+<script type="text/javascript" src="./Công bố Windows 11 Insider Preview Build 25188 _ Blog Người dùng nội bộ Windows_files/jquery.min.js.tải xuống" id="jquery-js"></script>
+<link rel="https://api.w.org/" target="_blank" href="https://blogs.windows.com/windows-insider/wp-json/"><link rel="alternate" type="application/json" target="_blank" href="https://blogs.windows.com/windows-insider/wp-json/wp/v2/posts/175821"><link rel="EditURI" type="application/rsd+xml" title="RSD" target="_blank" href="https://blogs.windows.com/windows-insider/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" target="_blank" href="https://blogs.windows.com/windows-insider/wp-includes/wlwmanifest.xml"> 
+<link rel="shortlink" target="_blank" href="https://blogs.windows.com/windows-insider/?p=175821">
+<link rel="alternate" type="application/json+oembed" target="_blank" href="https://blogs.windows.com/windows-insider/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fblogs.windows.com%2Fwindows-insider%2F2022%2F08%2F24%2Fannouncing-windows-11-insider-preview-build-25188%2F">
+<link rel="alternate" type="text/xml+oembed" target="_blank" href="https://blogs.windows.com/windows-insider/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fblogs.windows.com%2Fwindows-insider%2F2022%2F08%2F24%2Fannouncing-windows-11-insider-preview-build-25188%2F&amp;format=xml">
+			<meta property="fb:pages" content="30968512668">
+			<link rel="stylesheet" target="_blank" href="./Công bố Windows 11 Insider Preview Build 25188 _ Blog Người dùng nội bộ Windows_files/ef-a24652" type="text/css" media="all"><link rel="stylesheet" target="_blank" href="./Công bố Windows 11 Insider Preview Build 25188 _ Blog Người dùng nội bộ Windows_files/override.css" type="text/css"><link rel="preload" target="_blank" href="./Công bố Windows 11 Insider Preview Build 25188 _ Blog Người dùng nội bộ Windows_files/vendor.min.js.tải xuống" as="script">
+<link rel="preload" target="_blank" href="./Công bố Windows 11 Insider Preview Build 25188 _ Blog Người dùng nội bộ Windows_files/scripts.min.js.tải xuống" as="script">
+<link rel="preload" target="_blank" href="./Công bố Windows 11 Insider Preview Build 25188 _ Blog Người dùng nội bộ Windows_files/new-tab.js.tải xuống" as="script">
+<link rel="preload" target="_blank" href="./Công bố Windows 11 Insider Preview Build 25188 _ Blog Người dùng nội bộ Windows_files/microsoft-uhf.js.tải xuống" as="script">
+<link rel="preload" target="_blank" href="./Công bố Windows 11 Insider Preview Build 25188 _ Blog Người dùng nội bộ Windows_files/microsoft-cookie-updates.js.tải xuống" as="script">
+<!-- There is no amphtml version available for this URL. --><link rel="icon" target="_blank" href="https://blogs.windows.com/wp-content/uploads/prod/sites/44/2021/06/cropped-browser-icon-logo-32x32.jpg" sizes="32x32">
+<link rel="icon" target="_blank" href="https://blogs.windows.com/wp-content/uploads/prod/sites/44/2021/06/cropped-browser-icon-logo-192x192.jpg" sizes="192x192">
+<link rel="apple-touch-icon" target="_blank" href="https://blogs.windows.com/wp-content/uploads/prod/sites/44/2021/06/cropped-browser-icon-logo-180x180.jpg">
+<meta name="msapplication-TileImage" content="https://blogs.windows.com/wp-content/uploads/prod/sites/44/2021/06/cropped-browser-icon-logo-270x270.jpg">
+		<style type="text/css" id="wp-custom-css">
+			.twitter-tweet-rendered {
+	margin-left: auto;
+	margin-right: auto;
+}
+.t-content table p {
+	font-size: calc(15px + (100vw - 320px)/1600);
+}		</style>
+		<script src="./Công bố Windows 11 Insider Preview Build 25188 _ Blog Người dùng nội bộ Windows_files/wcp-consent.js.tải xuống"></script><script src="./Công bố Windows 11 Insider Preview Build 25188 _ Blog Người dùng nội bộ Windows_files/37-8473b9"></script>
+
+<script id="1ds-application-insights-js" src="./Công bố Windows 11 Insider Preview Build 25188 _ Blog Người dùng nội bộ Windows_files/ms.analytics-web-3.min.js.tải xuống" type="text/javascript"></script><script async="" src="./Công bố Windows 11 Insider Preview Build 25188 _ Blog Người dùng nội bộ Windows_files/6rxyheipdi" type="application/javascript"></script><script id="microsoft-1ds-metrics-js-js" src="./Công bố Windows 11 Insider Preview Build 25188 _ Blog Người dùng nội bộ Windows_files/microsoft-1ds-metrics-js.js.tải xuống" type="text/javascript"></script><script>(function(){(function injection() {
+  var pageLang = 'en';
+  var userLang = 'vi';
+
+  var uid = '1E07F158C6FA4460B352973E9693B329';
+  var teId = 'TE_' + uid;
+  var cbId = 'TECB_' + uid;
+
+  function show() {
+    window.setTimeout(function() {
+      window[teId].showBanner(true);
+    }, 10);
+  }
+
+  function newElem() {
+    var elem = new google.translate.TranslateElement({
+      autoDisplay: false,
+      floatPosition: 0,
+      multilanguagePage: true,
+      pageLanguage: pageLang
+    });
+    return elem;
+  }
+
+  if (window[teId]) {
+    show();
+  } else {
+    if (!window.google || !google.translate ||
+        !google.translate.TranslateElement) {
+      if (!window[cbId]) {
+        window[cbId] = function() {
+          window[teId] = newElem();
+          show();
+        };
+      }
+      let ttPolicy = {createScriptURL: s => s};
+      if (typeof trustedTypes != 'undefined') {
+        ttPolicy = trustedTypes.createPolicy('gtx', ttPolicy);
+      }
+      var s = document.createElement('script');
+      // We couldn't use safedom because this function is stringified and then
+      // passed to executeScript in main.js.
+      s.src = ttPolicy.createScriptURL(
+          'https://translate.google.com/translate_a/element.js?cb=' +
+          encodeURIComponent(cbId) + '&client=tee&hl=' + userLang + '&nsc=1');
+      document.getElementsByTagName('head')[0].appendChild(s);
+    }
+  }
+})();})();</script><script src="./Công bố Windows 11 Insider Preview Build 25188 _ Blog Người dùng nội bộ Windows_files/element.js.tải xuống"></script><link type="text/css" rel="stylesheet" charset="UTF-8" target="_blank" href="./Công bố Windows 11 Insider Preview Build 25188 _ Blog Người dùng nội bộ Windows_files/translateelement.css"><script type="text/javascript" charset="UTF-8" src="./Công bố Windows 11 Insider Preview Build 25188 _ Blog Người dùng nội bộ Windows_files/m=el_main"></script><script>(function(){(function injection() {
+  var pageLang = 'en';
+  var userLang = 'vi';
+
+  var uid = '1E07F158C6FA4460B352973E9693B329';
+  var teId = 'TE_' + uid;
+  var cbId = 'TECB_' + uid;
+
+  function show() {
+    window.setTimeout(function() {
+      window[teId].showBanner(true);
+    }, 10);
+  }
+
+  function newElem() {
+    var elem = new google.translate.TranslateElement({
+      autoDisplay: false,
+      floatPosition: 0,
+      multilanguagePage: true,
+      pageLanguage: pageLang
+    });
+    return elem;
+  }
+
+  if (window[teId]) {
+    show();
+  } else {
+    if (!window.google || !google.translate ||
+        !google.translate.TranslateElement) {
+      if (!window[cbId]) {
+        window[cbId] = function() {
+          window[teId] = newElem();
+          show();
+        };
+      }
+      let ttPolicy = {createScriptURL: s => s};
+      if (typeof trustedTypes != 'undefined') {
+        ttPolicy = trustedTypes.createPolicy('gtx', ttPolicy);
+      }
+      var s = document.createElement('script');
+      // We couldn't use safedom because this function is stringified and then
+      // passed to executeScript in main.js.
+      s.src = ttPolicy.createScriptURL(
+          'https://translate.google.com/translate_a/element.js?cb=' +
+          encodeURIComponent(cbId) + '&client=tee&hl=' + userLang + '&nsc=1');
+      document.getElementsByTagName('head')[0].appendChild(s);
+    }
+  }
+})();})();</script></head>
+<body class="post-template-default single single-post postid-175821 single-format-standard microsoft-uhf has-panels is-panels-page post-announcing-windows-11-insider-preview-build-25188 browser-chrome" style="position: relative; min-height: 100%; top: 40px;"><div class="skiptranslate" style=""><iframe id=":0.container" class="goog-te-banner-frame skiptranslate" frameborder="0" src="javascript:&#39;&#39;" style="visibility:visible" src="./Công bố Windows 11 Insider Preview Build 25188 _ Blog Người dùng nội bộ Windows_files/saved_resource.html"></iframe></div>
+
+	
+
+	<a target="_blank" href="https://blogs.windows.com/windows-insider/2022/08/24/announcing-windows-11-insider-preview-build-25188/#a11y-skip-link-content" class="a11y-skip-link a11y-visual-hide"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Chuyển đến nội dung chính</font></font></a>
+
+	
+
+	
+
+
+	<div class="l-wrapper" data-js="site-wrap">
+
+
+<div id="a11y-skip-link-content" tabindex="-1"></div>
+
+<main class="
+		">
+
+	
+				<section class="
+	panel panel__article-header
+		panel__article-header--full-image
+		panel__article-header--density
+" data-js="panel-article-header">
+		<div class="article-header__content l-container l-container--medium">
+									<div class="article-header__title" data-js="panel-article-header-title">
+				<h1 class="h1"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+					Công bố Windows 11 Insider Preview Build 25188
+				</font></font></h1>
+			</div>
+						<div class="article-header__author-contain">
+																													<div class="article-header__author-contain-inner">
+					<span class="article-header__intro_caption">
+						<span class="article-header__intro_caption_heading"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+							Được viết bởi
+						</font></font></span>
+						<ul class="article-header__author-list article-header__author-list--multiple">
+													<li>
+								<a target="_blank" href="https://blogs.windows.com/windows-insider/author/amanda-langowski/" class="article-header__intro_caption_content"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+								Amanda Langowski
+							</font></font></a>
+							</li>
+													<li>
+								<a target="_blank" href="https://blogs.windows.com/windows-insider/author/brandonleblanc/" class="article-header__intro_caption_content"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+								Brandon LeBlanc
+							</font></font></a>
+							</li>
+												</ul>
+					</span>
+					<span class="article-header__intro_caption">
+						<span class="article-header__intro_caption_heading"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+							được phát hành
+						</font></font></span>
+						<span class="article-header__intro_caption_content"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+							24 tháng 8 năm 2022
+						</font></font></span>
+					</span>
+				<div>
+					</div>
+			</div>
+</div></div></section>
+
+
+
+
+	
+	
+		<div class="panel-collection" data-modular-content-collection="">
+	
+		
+
+			<section class="panel s-wrapper site-panel site-panel--wysiwyg-with-aside" data-index="0" data-js="panel" data-type="wysiwyg-with-aside" data-modular-content="">
+
+	
+	
+	
+	
+	<div class="l-container l-container--small l-container--article">
+		<div class="item-single__content t-content">
+			
+<div>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Xin chào Người dùng nội bộ Windows, hôm nay chúng tôi sẽ phát hành </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Windows 11 Insider Preview Build 25188</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> cho Dev Channel.</font></font></p>
+<h2><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">TL; DR</font></font></strong></h2>
+<ul>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Chúng tôi đang thử cài đặt bàn phím cảm ứng mới trong bản dựng này và Windows Terminal hiện là thiết bị đầu cuối mặc định.</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Bản dựng này bao gồm một tập hợp các bản sửa lỗi tốt để cải thiện trải nghiệm tổng thể cho Người dùng nội bộ Windows.</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Chúng tôi cũng đang phát hành một bản cập nhật Microsoft Store khác bắt đầu với Người dùng nội bộ Windows trong Kênh phát triển - chi tiết bên dưới.</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Chúng tôi đã thêm một vấn đề mới đã biết cho bản dựng này trong đó các ứng dụng dựa trên .NET Framework 3.5 có thể bị hỏng. </font><font style="vertical-align: inherit;">Nếu bạn đã cài đặt các ứng dụng sử dụng .NET Framework 3.5 và cần chúng hoạt động, bạn có thể muốn tạm dừng lật và tạm dừng cập nhật lên bản dựng này.</font></font></li>
+</ul>
+<h2><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Có gì mới</font></font></strong></h2>
+<h3><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Đã cập nhật cài đặt bàn phím cảm ứng</font></font></strong></h3>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Chúng tôi đang thử một cài đặt bàn phím cảm ứng mới thay thế hộp kiểm “Hiển thị bàn phím cảm ứng khi không có bàn phím đi kèm” trong </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cài đặt&gt; Thời gian và ngôn ngữ&gt; Nhập&gt; Bàn phím cảm</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> ứng với menu thả xuống mới có 3 tùy chọn để kiểm soát xem có chạm vào điều khiển chỉnh sửa hay không sẽ khởi chạy bàn phím cảm ứng:</font></font></p>
+<ul>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">“Không bao giờ” tắt bàn phím cảm ứng ngay cả khi không có bàn phím phần cứng nào được gắn vào.</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">“Khi không có bàn phím được đính kèm” sẽ chỉ hiển thị bàn phím cảm ứng khi thiết bị được sử dụng làm máy tính bảng mà không có bàn phím phần cứng.</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">“Luôn luôn” sẽ hiển thị bàn phím cảm ứng ngay cả khi bàn phím phần cứng được gắn vào.</font></font></li>
+</ul>
+<figure id="attachment_175823" aria-describedby="caption-attachment-175823" style="width: 1024px" class="wp-image wp-image--caption alignnone"><a target="_blank" href="https://blogs.windows.com/wp-content/uploads/prod/sites/44/2022/08/touch-keyboard-new-settings.png"><img class="size-large wp-image-175823" src="./Công bố Windows 11 Insider Preview Build 25188 _ Blog Người dùng nội bộ Windows_files/touch-keyboard-new-settings-1024x691.webp" alt="Cài đặt bàn phím cảm ứng mới." width="1024" height="691"></a><figcaption id="caption-attachment-175823" class="wp-caption-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cài đặt bàn phím cảm ứng mới.</font></font></figcaption></figure>
+<p><em><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">[Chúng tôi đang bắt đầu triển khai tính năng này, vì vậy trải nghiệm này vẫn chưa có sẵn cho tất cả Người trong cuộc vì chúng tôi dự định theo dõi phản hồi và xem phản hồi đến như thế nào trước khi giới thiệu cho mọi người.]</font></font></em></p>
+<p><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">PHẢN HỒI: Vui lòng gửi phản hồi trong Trung tâm phản hồi (WIN + F) trong Phương thức nhập và ngôn ngữ&gt; Bàn phím cảm ứng.</font></font></strong></p>
+<h2><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Các thay đổi và cải tiến</font></font></strong></h2>
+<h3><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">[Thiết bị đầu cuối Windows]</font></font></strong></h3>
+<ul>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Windows Terminal hiện là thiết bị đầu cuối mặc định trong Windows 11. Điều này có nghĩa là, tất cả các ứng dụng dòng lệnh sẽ tự động mở trong Windows Terminal (Ví dụ: Command Prompt và PowerShell). </font><font style="vertical-align: inherit;">Bạn có thể tìm cài đặt cho thay đổi này qua&nbsp; </font></font><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cài đặt&gt; Quyền riêng tư và bảo mật&gt; Dành cho nhà phát triển</font></font></strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> . </font><font style="vertical-align: inherit;">Xin lưu ý rằng Windows Terminal&nbsp; </font></font><a target="_blank" href="https://devblogs.microsoft.com/commandline/windows-terminal-preview-1-15-release/"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">phiên bản 1.15</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> &nbsp;trở lên là bắt buộc cho tính năng này.</font></font></li>
+</ul>
+<h3><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">[Cài đặt]</font></font></strong></h3>
+<ul>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Đã cập nhật các trang thuộc tính Wi-Fi và VPN trong Cài đặt để bây giờ bao gồm một liên kết đến các thuộc tính nâng cao cho mạng đó.</font></font></li>
+</ul>
+<h2><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Sửa lỗi</font></font></strong></h2>
+<h3><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">[Thanh tác vụ]</font></font></strong></h3>
+<ul>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Đã khắc phục sự cố liên quan đến tràn thanh tác vụ đang ảnh hưởng đến độ tin cậy của explorer.exe.</font></font></li>
+</ul>
+<h3><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">[Bắt đầu]</font></font></strong></h3>
+<ul>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Đã khắc phục sự cố khiến Start's được khuyến nghị chỉ hiển thị một cột thay vì hai.</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Đã sửa lỗi Trình tường thuật đọc nhầm hộp tìm kiếm trong Bắt đầu hai lần.</font></font></li>
+<li>Fixed an issue where the access keys (underlined letters) in WIN + X had duplicate definitions when an update was pending reboot.</li>
+</ul>
+<h3><strong>[File Explorer]</strong></h3>
+<ul>
+<li>Fixed an issue causing a small percentage of Insiders to experience repeated explorer.exe crashes after attempting to access certain folders on their systems in the last couple Dev Channel builds.</li>
+<li>Fixed a recent issue where if File Explorer was open when you switched between light and dark mode, you could end up with some unreadable text / UI showing the wrong color.</li>
+<li>Fixed an issue that was causing explorer.exe to crash when opening folders with certain images.</li>
+<li>The up arrow should no longer be misaligned in File Explorer.</li>
+<li>Fixed an issue which could lead to not being able to unpin Desktop, Pictures, or Documents folders from Quick access.</li>
+<li>Fixed an underlying explorer.exe crash which could happen when File Explorer launch was aborted, for example if you were attempting to access a network share from the Run dialog, were prompted for credentials, and then clicked cancel instead of entering them.</li>
+<li>If the tab title is too long to display completely in the available space, hovering your mouse over it will now show a tooltip with the full name.</li>
+<li>Fixed an issue which could lead to explorer.exe crashing when File Explorer was closed.</li>
+<li>Fixed an issue causing the delete key to unexpectedly not work on files in File Explorer sometimes.</li>
+<li>Removed the toolbar some people were unexpectedly seeing (with View / Edit / etc) after the introduction of tabs in File Explorer. As part of this, the “always show menus” option in Folder Options was also removed which didn’t do anything.</li>
+</ul>
+<h3><strong>[Search]</strong></h3>
+<ul>
+<li>Fixed an underlying crash which could lead to search not launching.</li>
+<li>Searching for “detect displays” will now return Display Settings.</li>
+</ul>
+<h3><strong>[Input] </strong></h3>
+<ul>
+<li>Made a number of updates to emoji keywords based on feedback, including fixing that searching for apple didn’t return the red apple emoji in Korean or Polish (in the respective languages), searching for trash or garbage in English should now return the wastebasket emoji, searching for roger in English should now return the saluting face emoji, and searching for bug will now return the ladybug emoji. Please continue sharing feedback about emoji search results under Input &amp; Language &gt; Emoji Panel in the Feedback Hub!</li>
+</ul>
+<h3><strong>[Settings]</strong></h3>
+<ul>
+<li>Fixed an issue where in certain cases removing a printer from Settings wouldn’t work.</li>
+<li>Fixed an issue where the DNS suffix search list entry wasn’t displaying correctly in Settings.</li>
+<li>Fixed an issue where the buttons for changing current view in Settings &gt; Apps &gt; Installed apps might unexpectedly show arrows overlaid on top.</li>
+</ul>
+<h3><strong>[Task Manager]</strong></h3>
+<ul>
+<li>Updated the positioning of the View button tooltip position so it shouldn’t block the close button in the title bar anymore.</li>
+<li>The arrow shown when sorting processes by CPU should no longer be black on black in certain cases when using dark mode.</li>
+<li>Updated the selection highlight color when you select rows on the Details or Services page to be less bright and more aligned with the other colors used with the updated Task Manager design.</li>
+</ul>
+<h3><strong>[Other]</strong></h3>
+<ul>
+<li>Fixed an issue leading to missing / broken characters on the Bitlocker screen when using the Japanese display language.</li>
+<li>Fixed an issue where the Advanced Settings of an application pool on a remote IIS server would display a blank screen.</li>
+<li>Fixed an issue where Steps Recorder wouldn’t close when you pressed ALT + F4.</li>
+</ul>
+<p><em>NOTE: Some fixes noted here in Insider Preview builds from the Dev Channel may make their way into the servicing updates for the released version of Windows 11.</em></p>
+<h2><strong>Known issues</strong></h2>
+<h3><strong>[General]</strong></h3>
+<ul>
+<li>Some games that use Easy Anti-Cheat may crash or cause your PC to bugcheck.</li>
+<li>We’re looking into reports that audio stopped working for some Insiders after upgrading to the last flight.</li>
+<li>We’re investigating reports of a few different apps having started crashing in recent builds.</li>
+<li>[<strong>NEW</strong>] Enabling .NET Framework 3.5 from the Windows Features dialog will not work in this build. If you had it enabled prior to upgrading, it may become disabled. This will potentially lead to issues with apps that rely on these components. We’re working on a fix.</li>
+</ul>
+<h3><strong>[File Explorer]</strong></h3>
+<ul>
+<li>We’re working on the fix for an issue where the search box background in File Explorer might be the opposite color of your current mode.</li>
+<li>We’re working on the fix for an issue where the taskbar isn’t able to display if File Explorer is maximized and you have the taskbar set to auto-hide.</li>
+<li>[<strong>NEW</strong>] A fix for File Explorer appearing to open and close before finally finishing drawing when launched from certain locations will be available in a future flight.</li>
+</ul>
+<h3><strong>[Widgets]</strong></h3>
+<ul>
+<li>Notification badge number may appear misaligned on the taskbar.</li>
+<li>In some cases, the notification banner for some badging will not appear in the widgets board.</li>
+</ul>
+<h3><strong>[Printing]</strong></h3>
+<ul>
+<li>We’re working on the fix for an issue in recent Dev Channel flights causing lines to not be included when printing tables from certain apps.</li>
+</ul>
+<h2><strong>For developers</strong></h2>
+<p>You can download the latest Windows Insider SDK at&nbsp;<a target="_blank" href="https://aka.ms/windowsinsidersdk">aka.ms/windowsinsidersdk</a>.</p>
+<p>SDK NuGet packages are now also flighting at <a target="_blank" href="https://www.nuget.org/profiles/WindowsSDK">NuGet Gallery | WindowsSDK</a> which include:</p>
+<ul>
+<li><a target="_blank" href="https://www.nuget.org/packages/Microsoft.Windows.SDK.NET.Ref/">.NET TFM packages</a> for use in .NET apps as described at <a target="_blank" href="https://aka.ms/windowsinsidersdk">ms/windowsinsidersdk</a></li>
+<li><a target="_blank" href="https://www.nuget.org/packages/Microsoft.Windows.SDK.CPP/">C++ packages</a> for Win32 headers and libs per architecture</li>
+<li><a target="_blank" href="https://www.nuget.org/packages/Microsoft.Windows.SDK.BuildTools/">BuildTools package</a> when you just need tools like MakeAppx.exe, MakePri.exe, and SignTool.exe</li>
+</ul>
+<p>These NuGet packages provide more granular access to the SDK and better integrate in CI/CD pipelines.</p>
+<h2><strong>Microsoft Store Update</strong></h2>
+<p>We are beginning to test <a target="_blank" href="https://blogs.windows.com/windowsdeveloper/2022/05/24/microsoft-store-grows-with-the-developer-community/">Microsoft Store Ads</a> in search results. Developers interested in participating can sign up on the waitlist <a target="_blank" href="https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fforms.office.com%2FPages%2FResponsePage.aspx%3Fid%3Dv4j5cvGGr0GRqy180BHbR0qhf-gSatdCgmqCvPskx_NUQktMM1lQSU5UOUVQWDdIRUhDUjc4UDlOSS4u&amp;data=05%7C01%7Cnmallikarjun%40microsoft.com%7C30254a5dd0a747e534b708da8565eec1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637968970123537245%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C3000%7C%7C%7C&amp;sdata=%2Blc9QKok0C55HCOWCKcTiuetHyNPlu0rkRxoW9mjj5o%3D&amp;reserved=0">here</a>.</p>
+<h2><strong>About the Dev Channel</strong></h2>
+<p>The Dev Channel receives builds that represent long lead work from our engineers&nbsp;<strong>with features and experiences that may never get released</strong>&nbsp;as we try out different concepts and get feedback. It is important to remember that the builds we release to the Dev Channel should not be seen as matched to any specific release of Windows and the features included may change over time, be removed, or replaced in Insider builds or may never be released beyond Windows Insiders to general customers. For more information,&nbsp;<a target="_blank" href="https://blogs.windows.com/windows-insider/2022/02/03/whats-coming-for-the-windows-insider-program-in-2022/">please read this blog post</a>&nbsp;about how we plan to use the Dev Channel to incubate new ideas, work on long lead items, and control the states of individual features.</p>
+<p>These aren’t always stable builds, and sometimes you will see issues that block key activities or require workarounds.&nbsp;<strong>It is important to make sure you read the known issues listed in our blog posts as we document many of these issues with each flight.</strong></p>
+<p>Build numbers are higher in the Dev Channel than the Windows 11 preview builds in the Beta and Release Preview Channels. You will not be able to switch from the Dev Channel to the Beta or Release Preview Channels without doing a clean install back to the released version of Windows 11 currently.</p>
+<p>ALSO: Because the Dev and Beta Channels represent parallel development paths from our engineers, there may be cases where features and experiences show up in the Beta Channel first.</p>
+<p><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Hình mờ màn hình bạn nhìn thấy ở góc dưới bên phải của màn hình là bình thường đối với các bản dựng trước khi phát hành.</font></font></strong></p>
+<h2><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Các liên kết nội bộ quan trọng</font></font></strong></h2>
+<ul>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Bạn muốn tìm hiểu cách chúng tôi tạo ra Windows 11? </font><font style="vertical-align: inherit;">Hãy xem </font></font><a target="_blank" href="https://insider.windows.com/insidewindows11"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">trang web Inside Windows 11</font></font></strong></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> của chúng tôi để nghe và gặp gỡ các nhà sản xuất của chúng tôi từ Kỹ thuật, Thiết kế và Nghiên cứu để chia sẻ những hiểu biết sâu sắc và quan điểm độc đáo của họ trong suốt hành trình này.</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Bạn có thể </font></font><a target="_blank" href="https://aka.ms/wip-docs"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">xem tài liệu về Chương trình Người dùng nội bộ Windows của chúng tôi tại đây</font></font></strong></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> .</font></font></li>
+<li><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Hãy xem </font></font><a target="_blank" href="https://aka.ms/flighthub"><strong><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Trung tâm chuyến bay</font></font></strong></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> để có cái nhìn đầy đủ về bản dựng trong kênh Người nội bộ nào.</font></font></li>
+</ul>
+<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">Cảm ơn, </font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+Amanda &amp; Brandon</font></font></p>
+
+</div>
+
+
+					</div>
+	</div>
+
+
+				
+	
+			</section>
+	
+
+</div>
+
+			
+
+
+
+		
+	
+
+</main>
+
+
+		</div><!-- .l-wrapper -->
+
+	
+
+			<script>window.Promise ||
+			document.write('<script src="https://blogs.windows.com/wp-content/themes/microsoft-stories-theme/js/vendor/es6-promise.auto.js"><\/script>');
+		</script>
+		<script type="text/javascript" src="./Công bố Windows 11 Insider Preview Build 25188 _ Blog Người dùng nội bộ Windows_files/vendor.min.js.tải xuống" id="core-webpack-vendors-js"></script>
+<script type="text/javascript" id="core-theme-scripts-js-extra">
+/* <![CDATA[ */
+var modern_tribe_i18n = {"help_text":{"msg_limit":"There is a limit to the messages you can post."},"tooltips":{"add_to_save":"Add Photo to Saved Items","in_this_photo":"Products in this photo"}};
+var modern_tribe_config = {"images_url":"https:\/\/blogs.windows.com\/wp-content\/themes\/microsoft-stories-theme\/img\/theme","template_url":"https:\/\/blogs.windows.com\/wp-content\/themes\/microsoft-stories-theme\/","hmr_dev":"","ajax_search_endpoint":"https:\/\/blogs.windows.com\/windows-insider\/wp-admin\/admin-ajax.php?action=ms_tribe_search","ajax_archive_endpoint":"https:\/\/blogs.windows.com\/windows-insider\/wp-admin\/admin-ajax.php?action=ms_tribe_archive","ajax_author_endpoint":"https:\/\/blogs.windows.com\/windows-insider\/wp-admin\/admin-ajax.php?action=ms_tribe_author"};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Công bố Windows 11 Insider Preview Build 25188 _ Blog Người dùng nội bộ Windows_files/scripts.min.js.tải xuống" id="core-theme-scripts-js"></script>
+<script type="text/javascript" src="./Công bố Windows 11 Insider Preview Build 25188 _ Blog Người dùng nội bộ Windows_files/new-tab.js.tải xuống" id="page-links-to-js"></script>
+<script type="text/javascript" id="microsoft-uhf-js-extra">
+/* <![CDATA[ */
+var microsoftUhfSettings = {"homePath":"\/windows-insider\/","loginUrl":"","logoutUrl":"","scripts":[],"inline":[]};
+/* ]]> */
+</script>
+<script type="text/javascript" src="./Công bố Windows 11 Insider Preview Build 25188 _ Blog Người dùng nội bộ Windows_files/microsoft-uhf.js.tải xuống" id="microsoft-uhf-js"></script>
+<script type="text/javascript" src="./Công bố Windows 11 Insider Preview Build 25188 _ Blog Người dùng nội bộ Windows_files/microsoft-cookie-updates.js.tải xuống" id="microsoft-cookie-updates-js"></script><div id="goog-gt-tt" class="skiptranslate" dir="ltr"><div style="padding: 8px;"><div><div class="logo"><img src="./Công bố Windows 11 Insider Preview Build 25188 _ Blog Người dùng nội bộ Windows_files/translate_24dp.png" width="20" height="20" alt="Google Dịch"></div></div></div><div class="top" style="padding: 8px; float: left; width: 100%;"><h1 class="title gray">Văn bản gốc</h1></div><div class="middle" style="padding: 8px;"><div class="original-text"></div></div><div class="bottom" style="padding: 8px;"><div class="activity-links"><span class="activity-link">Đóng góp bản dịch hay hơn</span><span class="activity-link"></span></div><div class="started-activity-container"><hr style="color: #CCC; background-color: #CCC; height: 1px; border: none;"><div class="activity-root"></div></div></div><div class="status-message" style="display: none;"></div></div>
+
+
+
+
+
+<div class="goog-te-spinner-pos"><div class="goog-te-spinner-animation"><svg xmlns="http://www.w3.org/2000/svg" class="goog-te-spinner" width="96px" height="96px" viewBox="0 0 66 66"><circle class="goog-te-spinner-path" fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle></svg></div></div><iframe frameborder="0" class="goog-te-menu-frame skiptranslate" title="Tiện ích dịch ngôn ngữ" style="visibility: visible; box-sizing: content-box; width: 1131px; height: 267px; display: none;" src="./Công bố Windows 11 Insider Preview Build 25188 _ Blog Người dùng nội bộ Windows_files/saved_resource(1).html"></iframe><iframe frameborder="0" class="goog-te-menu-frame skiptranslate" title="Tiện ích dịch ngôn ngữ" style="visibility: visible; box-sizing: content-box; width: 237px; height: 70px; display: none;" src="./Công bố Windows 11 Insider Preview Build 25188 _ Blog Người dùng nội bộ Windows_files/saved_resource(2).html"></iframe></body></html>
