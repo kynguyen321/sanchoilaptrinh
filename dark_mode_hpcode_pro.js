@@ -57,6 +57,16 @@ for (var i = 0; i < ulElements.length; i++) {
     ulElements[i].style.borderColor = "transparent";
 }
 
+var listItems = document.querySelectorAll("span");
+for (var i = 0; i < listItems.length; i++) {
+    listItems[i].style.backgroundColor = "#333333";
+    var children = listItems[i].querySelectorAll("*");
+    for (var j = 0; j < children.length; j++) {
+        if (children[j].style.color === "black") {
+            children[j].style.color = "white";
+        }
+    }
+}
 
 
 
